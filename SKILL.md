@@ -171,6 +171,8 @@ These are the things that bite a React dev specifically. Surface the relevant on
 8. **Stores vs runes vs module-level state.** Three valid ways to hold state, each with a place. Don't mix unnecessarily. See `references/runes.md`.
 9. **SSR/client mismatch warnings.** Like React, code that reads `window`/`document` at module top-level or during init will break SSR. Guard with `import { browser } from '$app/environment'`.
 10. **Event names are lowercase DOM names** (`onclick`), not camelCase (`onClick`). Svelte 5 normalized this to match the DOM.
+11. **`class`, not `className`; `for`, not `htmlFor`.** Svelte uses real DOM attribute names. If a React dev's styles aren't applying, it's almost always a stray `className`. Likewise `style` is a string or `style:prop` directives, not an object.
+12. **`{#each}` keys are written `(key)`, not `key={}`** — and `{:else}` inside the each block is the empty-list state, no length check needed.
 
 ## Snippets (the composition primitive) — short version
 
